@@ -1,0 +1,29 @@
+import java.util.*;
+public class Armstrong {
+    public static void main(String [] args)
+    {
+        int n;
+        System.out.println("Enter the number");
+        Scanner sc = new Scanner(System.in);
+        n= sc.nextInt();
+        Armstrong obj = new Armstrong();
+        obj.arms(n);
+    }
+    void arms(int n)
+    {
+        int c=n,arm=0,rem;
+        while(n>0)
+        {
+            rem = n%10;
+            arm = arm+(rem*rem*rem);
+            n=n/10;
+        }
+        if(c==arm)
+        {
+            System.out.println("Armstrong Number....");
+        }
+        else{
+            System.out.println("Not Armstrong Number....");
+        }
+    }
+}
