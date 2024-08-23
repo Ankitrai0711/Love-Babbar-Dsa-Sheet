@@ -1,27 +1,38 @@
-class main{
-    public static void main(String [] args){
-        int arr[] = {1,2,3};
-        int n = arr.length;
-        int sum1 =0;
-        int sum2=0;
-        int i =0;
-        int j =n-1;
-        int flag =0;
-        while(i<=j){
-            sum1 = sum1+arr[i];
-            sum2 = sum2+arr[j];
-            if(sum1==sum2){
-            flag = i+1;
+public class PivotIndex {
+    public static int pivotIndex(int[] nums) {
+        int totalSum = 0;
+        int leftSum = 0;
+        
+        // Calculate the total sum of the array
+        for (int num : nums) {
+            totalSum += num;
         }
-        i++;
-        j--;
+        
+        // Iterate through the array to find the pivot index
+        for (int i = 0; i < nums.length; i++) {
+            // Right sum is total sum minus left sum minus the current element
+            int rightSum = totalSum - leftSum - nums[i];
+            
+            if (leftSum == rightSum) {
+                return i;
+            }
+            
+            // Update left sum by adding the current element
+            leftSum += nums[i];
         }
-        if(flag==0){
-            System.out.print("not found");
-        }
-        else {
-            System.out.print(flag);
+        
+        // If no pivot index is found, return -1
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        int[] nums1 = {1, 7, 3, 6, 5, 6};
+        System.out.println(pivotIndex(nums1));  // Output: 3
 
-        }
+        int[] nums2 = {1, 2, 3};
+        System.out.println(pivotIndex(nums2));  // Output: -1
+
+        int[] nums3 = {2, 1, -1};
+        System.out.println(pivotIndex(nums3));  // Output: 0
     }
 }
