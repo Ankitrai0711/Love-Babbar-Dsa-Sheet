@@ -1,0 +1,29 @@
+import java.util.*;
+class Main{
+    public static void swap(int arr[],int i ,int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static void move(int arr[],int n){
+        int m=0;
+        int t =0;
+        int p= n-1;
+        while(m<=p){
+            if(arr[m]<0){
+                swap(arr,m,t);
+                t++;
+                m++;
+            }
+            else{
+                m++;
+            }
+        }
+         System.out.println(Arrays.toString(arr));
+    }
+    public static void main(String [] args){
+        int arr[] = {1,3,-1,-4,2,4,-3};
+        int n = arr.length;
+        move(arr,n);
+    }
+}
