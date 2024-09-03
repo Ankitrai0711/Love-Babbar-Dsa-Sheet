@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Main{
+    public static void main(String [] args){
+        int arr[] = {2,1,2,0,1,0,0};
+        int i =0;
+        int j =0;
+        int k =0;
+        int n = arr.length;
+        for(int l = 0;l<n;l++){
+            if(arr[l]==0){
+                i++;
+            }
+            else if(arr[l]==1){
+                j++;
+            }
+            else{
+                k++;
+            }
+        }
+        for(int m = 0;m<i;m++) {
+            arr[m]=0;
+        }
+        for(int m = i;m<i+j;m++) {
+            arr[m]=1;
+          
+        }
+        for(int m = i+j;m<n;m++) {
+            arr[m]=2;
+        }
+       System.out.println(Arrays.toString(arr));
+    }
+}
