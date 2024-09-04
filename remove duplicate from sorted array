@@ -1,0 +1,26 @@
+import java.util.*;
+class Main{
+    public static void main(String [] args){
+        int arr[] = {1,1,2,2,3,3,4,4};
+        int n = arr.length;
+        int i =0;
+        int j =0;
+        int count = 0;
+        while(j<n){
+            if(arr[i]==arr[j]){
+                j++;
+            }
+            else{
+                i++;
+                
+                arr[i]=arr[j];
+                count++;
+            }
+        }
+        for(int t =0;t<=3;t++){
+            System.out.print(arr[t]);
+        }
+        System.out.print(" There are "+ (i+1) +" elements are duplicate..");
+        //System.out.println(Arrays.toString(arr)+" "+count);
+    }
+}
