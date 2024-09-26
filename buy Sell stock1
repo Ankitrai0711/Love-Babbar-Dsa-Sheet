@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProfit(int[] arr) {
+        int n = arr.length;
+        int m = Integer.MAX_VALUE;
+        int max =0;
+        for(int i =0;i<n;i++){
+            if(arr[i]<m){
+                m = arr[i];
+            }
+            int profit = arr[i]-m;
+            if(profit>max){
+                max= profit;
+            }
+        }
+        return max;
+        
+    }
+}
